@@ -2,6 +2,6 @@ import { createContext, useContext } from 'react'
 
 export const OverlayContainerContext = createContext<HTMLElement | null>(null)
 
-export function useOverlayContainer() {
+export const useOverlayContainer = () => {
   return useContext(OverlayContainerContext)
-}
+};

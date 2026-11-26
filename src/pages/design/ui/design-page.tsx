@@ -39,6 +39,7 @@ import {
   ExerciseCard,
   ExerciseRow,
   Heatmap,
+  IconButton,
   Input,
   Label,
   LineChart,
@@ -117,7 +118,7 @@ const PERIOD_OPTIONS: { value: Period; label: string }[] = [
   { value: 'year', label: 'Год' },
 ]
 
-function KitSection({
+const KitSection = ({
   index,
   title,
   hint,
@@ -127,7 +128,7 @@ function KitSection({
   title: string
   hint?: string
   children: ReactNode
-}) {
+}) => {
   return (
     <section className="flex flex-col gap-2.5 border-t border-border pt-5 first:border-t-0 first:pt-0">
       <div className="flex items-start gap-2.5">
@@ -146,9 +147,9 @@ function KitSection({
       <div className="flex flex-col gap-2.5">{children}</div>
     </section>
   )
-}
+};
 
-export function DesignPage() {
+export const DesignPage = () => {
   const [chip, setChip] = useState<MuscleGroup | 'Все'>('Грудь')
   const [search, setSearch] = useState('')
   const [title, setTitle] = useState('Push · Верх тела')
@@ -273,18 +274,22 @@ export function DesignPage() {
               <Button disabled>Disabled</Button>
             </div>
             <div className="flex flex-wrap items-center gap-2">
-              <Button variant="secondary" size="icon" aria-label="Добавить">
+              <IconButton label="Добавить" variant="secondary" size="icon">
                 <Plus size={18} />
-              </Button>
-              <Button variant="ghost" size="icon" aria-label="Таймер">
+              </IconButton>
+              <IconButton label="Таймер" variant="ghost" size="icon">
                 <Timer size={18} />
-              </Button>
-              <Button size="icon" aria-label="Начать тренировку">
+              </IconButton>
+              <IconButton
+                label="Начать тренировку"
+                variant="default"
+                size="icon"
+              >
                 <Dumbbell size={18} />
-              </Button>
-              <Button variant="secondary" size="icon-lg" aria-label="Тема">
+              </IconButton>
+              <IconButton label="Тема" variant="secondary" size="icon-lg">
                 <Moon size={18} />
-              </Button>
+              </IconButton>
             </div>
           </KitSection>
 
@@ -711,4 +716,4 @@ export function DesignPage() {
       </BottomSheet>
     </div>
   )
-}
+};

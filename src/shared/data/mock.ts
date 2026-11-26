@@ -300,7 +300,7 @@ export const EXERCISE_HISTORY = [
   { date: '8 ноя', value: '80 кг × 8', tone: 'neutral' as const },
 ]
 
-export function toWorkoutExercise(exercise: Exercise): WorkoutExercise {
+export const toWorkoutExercise = (exercise: Exercise): WorkoutExercise => {
   return {
     id: `we-${exercise.id}-${Date.now()}`,
     exerciseId: exercise.id,
@@ -328,4 +328,4 @@ export function toWorkoutExercise(exercise: Exercise): WorkoutExercise {
       },
     ],
   }
-}
+};

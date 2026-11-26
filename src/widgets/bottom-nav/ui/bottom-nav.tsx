@@ -7,11 +7,11 @@ const TABS = [
   { to: '/stats', label: 'Статистика', icon: ChartColumn },
 ]
 
-function normalize(pathname: string) {
+const normalize = (pathname: string) => {
   return pathname.replace(/\/$/, '') || '/'
-}
+};
 
-export function BottomNav() {
+export const BottomNav = () => {
   const pathname = useRouterState({
     select: (state) => normalize(state.location.pathname),
   })
@@ -53,4 +53,4 @@ export function BottomNav() {
       })}
     </nav>
   )
-}
+};

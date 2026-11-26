@@ -23,6 +23,7 @@ import {
   EmptyState,
   ExerciseCard,
   ExerciseRow,
+  IconButton,
   PageHeader,
   SearchField,
 } from '@/shared/ui'
@@ -33,7 +34,7 @@ type RestState = {
   total: number
 }
 
-function StatPill({
+const StatPill = ({
   icon,
   value,
   label,
@@ -41,7 +42,7 @@ function StatPill({
   icon: ReactNode
   value: string
   label: string
-}) {
+}) => {
   return (
     <div className="flex min-w-0 items-center gap-1.75 rounded-[11px] border border-border bg-card/85 px-2.25 py-1.75">
       <span className="grid shrink-0 place-items-center text-primary">
@@ -57,9 +58,9 @@ function StatPill({
       </span>
     </div>
   )
-}
+};
 
-export function WorkoutPage() {
+export const WorkoutPage = () => {
   const [exercises, setExercises] = useState<WorkoutExercise[]>(
     ACTIVE_WORKOUT.exercises,
   )
@@ -213,13 +214,13 @@ export function WorkoutPage() {
         eyebrow={ACTIVE_WORKOUT.date}
         title={ACTIVE_WORKOUT.title}
         action={
-          <Button
+          <IconButton
+            label="Настройки тренировки"
             variant="secondary"
             size="icon"
-            aria-label="Настройки тренировки"
           >
             <Ellipsis size={18} />
-          </Button>
+          </IconButton>
         }
       >
         <div className="grid grid-cols-3 gap-1.75">
@@ -343,4 +344,4 @@ export function WorkoutPage() {
       </BottomSheet>
     </div>
   )
-}
+};

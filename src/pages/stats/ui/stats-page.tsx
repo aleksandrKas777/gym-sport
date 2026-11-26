@@ -10,10 +10,10 @@ import type { Period } from '@/shared/types'
 import {
   Badge,
   BarChart,
-  Button,
   Card,
   Donut,
   Heatmap,
+  IconButton,
   LineChart,
   PageHeader,
   SectionHead,
@@ -27,7 +27,7 @@ const PERIOD_OPTIONS: { value: Period; label: string }[] = [
   { value: 'year', label: 'Год' },
 ]
 
-export function StatsPage() {
+export const StatsPage = () => {
   const [period, setPeriod] = useState<Period>('week')
   const data = PERIOD_STATS[period]
   const dense = data.bars.length > 8
@@ -48,13 +48,13 @@ export function StatsPage() {
         eyebrow="Статистика"
         title="Прогресс"
         action={
-          <Button
+          <IconButton
+            label="Выбрать дату"
             variant="secondary"
             size="icon"
-            aria-label="Выбрать дату"
           >
             <CalendarDays size={18} />
-          </Button>
+          </IconButton>
         }
       >
         <SegmentedControl
@@ -185,4 +185,4 @@ export function StatsPage() {
       </div>
     </div>
   )
-}
+};

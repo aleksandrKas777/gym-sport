@@ -20,14 +20,14 @@ const TONE_CLASSES = {
   danger: 'text-danger',
 }
 
-export function ProgressRing({
+export const ProgressRing = ({
   value,
   size = 96,
   stroke = 8,
   tone = 'primary',
   children,
   className,
-}: ProgressRingProps) {
+}: ProgressRingProps) => {
   const radius = (size - stroke) / 2
   const circumference = 2 * Math.PI * radius
   const offset = circumference * (1 - clamp(value) / 100)
@@ -75,4 +75,4 @@ export function ProgressRing({
       ) : null}
     </div>
   )
-}
+};

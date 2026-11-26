@@ -1,6 +1,6 @@
 import type { ReactNode } from 'react'
 import { X } from 'lucide-react'
-import { Button } from '@/shared/ui/button'
+import { IconButton } from '@/shared/ui/icon-button'
 import {
   Sheet,
   SheetClose,
@@ -21,7 +21,7 @@ export type BottomSheetProps = {
   className?: string
 }
 
-export function BottomSheet({
+export const BottomSheet = ({
   open,
   onOpenChange,
   title,
@@ -29,7 +29,7 @@ export function BottomSheet({
   children,
   footer,
   className,
-}: BottomSheetProps) {
+}: BottomSheetProps) => {
   return (
     <Sheet open={open} onOpenChange={onOpenChange}>
       <SheetContent
@@ -50,7 +50,7 @@ export function BottomSheet({
           </div>
           <SheetClose
             render={
-              <Button variant="ghost" size="icon-sm" aria-label="Закрыть" />
+              <IconButton label="Закрыть" variant="ghost" size="icon-sm" />
             }
           >
             <X />
@@ -65,4 +65,4 @@ export function BottomSheet({
       </SheetContent>
     </Sheet>
   )
-}
+};

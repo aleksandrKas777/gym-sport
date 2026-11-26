@@ -12,7 +12,7 @@ const LEVELS = [
   'bg-primary',
 ] as const
 
-export function Heatmap({ weeks, className }: HeatmapProps) {
+export const Heatmap = ({ weeks, className }: HeatmapProps) => {
   return (
     <div
       className={cn(
@@ -43,4 +43,4 @@ export function Heatmap({ weeks, className }: HeatmapProps) {
       </div>
     </div>
   )
-}
+};

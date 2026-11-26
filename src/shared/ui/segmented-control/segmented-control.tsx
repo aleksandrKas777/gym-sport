@@ -14,12 +14,12 @@ export type SegmentedControlProps<T extends string> = {
   className?: string
 }
 
-export function SegmentedControl<T extends string>({
+export const SegmentedControl = <T extends string,>({
   options,
   value,
   onChange,
   className,
-}: SegmentedControlProps<T>) {
+}: SegmentedControlProps<T>) => {
   return (
     <Tabs
       value={value}
@@ -46,4 +46,4 @@ export function SegmentedControl<T extends string>({
       </TabsList>
     </Tabs>
   )
-}
+};

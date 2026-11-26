@@ -40,11 +40,11 @@ const META = [
   { label: 'Стили', value: 'Tailwind CSS v4' },
 ]
 
-function normalize(pathname: string) {
+const normalize = (pathname: string) => {
   return pathname.replace(/\/$/, '') || '/'
-}
+};
 
-export function AppShell() {
+export const AppShell = () => {
   const [overlayElement, setOverlayElement] = useState<HTMLDivElement | null>(
     null,
   )
@@ -196,4 +196,4 @@ export function AppShell() {
       </div>
     </div>
   )
-}
+};

@@ -6,14 +6,14 @@ export type ChipProps = ComponentProps<'button'> & {
   icon?: ReactNode
 }
 
-export function Chip({
+export const Chip = ({
   selected = false,
   icon,
   className,
   children,
   type = 'button',
   ...props
-}: ChipProps) {
+}: ChipProps) => {
   return (
     <button
       type={type}
@@ -31,4 +31,4 @@ export function Chip({
       {children}
     </button>
   )
-}
+};

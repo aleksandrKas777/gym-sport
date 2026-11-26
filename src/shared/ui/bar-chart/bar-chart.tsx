@@ -10,13 +10,13 @@ export type BarChartProps = {
   className?: string
 }
 
-export function BarChart({
+export const BarChart = ({
   data,
   height = 150,
   format,
   highlight,
   className,
-}: BarChartProps) {
+}: BarChartProps) => {
   const max = Math.max(...data.map((point) => point.value), 0.0001)
   const activeIndex = highlight ?? data.length - 1
   const dense = data.length > 8
@@ -80,4 +80,4 @@ export function BarChart({
       })}
     </div>
   )
-}
+};

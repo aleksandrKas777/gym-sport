@@ -10,12 +10,12 @@ export type ExerciseRowProps = {
   className?: string
 }
 
-export function ExerciseRow({
+export const ExerciseRow = ({
   exercise,
   added = false,
   onClick,
   className,
-}: ExerciseRowProps) {
+}: ExerciseRowProps) => {
   return (
     <button
       type="button"
@@ -52,4 +52,4 @@ export function ExerciseRow({
       )}
     </button>
   )
-}
+};

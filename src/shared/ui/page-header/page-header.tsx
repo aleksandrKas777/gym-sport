@@ -9,13 +9,13 @@ export type PageHeaderProps = {
   className?: string
 }
 
-export function PageHeader({
+export const PageHeader = ({
   eyebrow,
   title,
   action,
   children,
   className,
-}: PageHeaderProps) {
+}: PageHeaderProps) => {
   return (
     <header
       className={cn(
@@ -35,4 +35,4 @@ export function PageHeader({
       {children}
     </header>
   )
-}
+};

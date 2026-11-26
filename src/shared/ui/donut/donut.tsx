@@ -11,14 +11,14 @@ export type DonutProps = {
   className?: string
 }
 
-export function Donut({
+export const Donut = ({
   segments,
   size = 116,
   thickness = 14,
   centerValue,
   centerLabel,
   className,
-}: DonutProps) {
+}: DonutProps) => {
   const total = segments.reduce((sum, segment) => sum + segment.value, 0) || 1
   const radius = (size - thickness) / 2
   const circumference = 2 * Math.PI * radius
@@ -87,4 +87,4 @@ export function Donut({
       ) : null}
     </div>
   )
-}
+};

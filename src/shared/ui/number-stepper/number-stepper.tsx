@@ -1,5 +1,5 @@
 import { Minus, Plus } from 'lucide-react'
-import { Button } from '@/shared/ui/button'
+import { IconButton } from '@/shared/ui/icon-button'
 import { cn } from '@/shared/lib/utils'
 
 export type NumberStepperProps = {
@@ -15,11 +15,11 @@ export type NumberStepperProps = {
   className?: string
 }
 
-function round(value: number): number {
+const round = (value: number): number => {
   return Math.round(value * 100) / 100
-}
+};
 
-export function NumberStepper({
+export const NumberStepper = ({
   value,
   onChange,
   step = 1,
@@ -30,7 +30,7 @@ export function NumberStepper({
   format,
   label,
   className,
-}: NumberStepperProps) {
+}: NumberStepperProps) => {
   const commit = (next: number) => {
     const clamped = Math.min(max, Math.max(min, round(next)))
     if (clamped !== value) onChange(clamped)
@@ -48,34 +48,34 @@ export function NumberStepper({
         className,
       )}
     >
-      <Button
+      <IconButton
         type="button"
+        label={`Уменьшить${label ? `: ${label}` : ''}`}
         variant="ghost"
         size="icon-xs"
-        aria-label={`Уменьшить${label ? `: ${label}` : ''}`}
         disabled={value <= min}
         onClick={() => commit(value - step)}
         className="h-full w-full rounded-none text-subtle hover:bg-white/6 hover:text-foreground"
       >
         <Minus strokeWidth={2.5} />
-      </Button>
+      </IconButton>
       <span className="tabular flex items-baseline justify-center gap-0.5 overflow-hidden text-[13.5px] font-semibold whitespace-nowrap">
         {format ? format(value) : value}
         {unit ? (
           <span className="text-[9.5px] font-medium text-subtle">{unit}</span>
         ) : null}
       </span>
-      <Button
+      <IconButton
         type="button"
+        label={`Увеличить${label ? `: ${label}` : ''}`}
         variant="ghost"
         size="icon-xs"
-        aria-label={`Увеличить${label ? `: ${label}` : ''}`}
         disabled={value >= max}
         onClick={() => commit(value + step)}
         className="h-full w-full rounded-none text-subtle hover:bg-white/6 hover:text-foreground"
       >
         <Plus strokeWidth={2.5} />
-      </Button>
+      </IconButton>
     </div>
   )
-}
+};

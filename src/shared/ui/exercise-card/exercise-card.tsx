@@ -1,7 +1,7 @@
 import { Check, Ellipsis, Plus, Timer } from 'lucide-react'
 import type { WorkoutExercise } from '@/shared/types'
 import { formatClock } from '@/shared/lib/format'
-import { Button } from '@/shared/ui/button'
+import { IconButton } from '@/shared/ui/icon-button'
 import { Card } from '@/shared/ui/card'
 import { Progress } from '@/shared/ui/progress'
 import { SetRow } from '@/shared/ui/set-row'
@@ -21,7 +21,7 @@ export type ExerciseCardProps = {
   className?: string
 }
 
-export function ExerciseCard({
+export const ExerciseCard = ({
   exercise,
   index,
   rest,
@@ -30,7 +30,7 @@ export function ExerciseCard({
   onAddSet,
   onAddRest,
   className,
-}: ExerciseCardProps) {
+}: ExerciseCardProps) => {
   const completed =
     exercise.sets.length > 0 && exercise.sets.every((set) => set.done)
   const doneCount = exercise.sets.filter((set) => set.done).length
@@ -59,13 +59,13 @@ export function ExerciseCard({
             {exercise.sets.length}
           </p>
         </div>
-        <Button
+        <IconButton
+          label="Действия с упражнением"
           variant="ghost"
           size="icon-sm"
-          aria-label="Действия с упражнением"
         >
           <Ellipsis size={18} />
-        </Button>
+        </IconButton>
       </div>
 
       {rest ? (
@@ -119,4 +119,4 @@ export function ExerciseCard({
       </button>
     </Card>
   )
-}
+};

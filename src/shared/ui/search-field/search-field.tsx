@@ -1,4 +1,5 @@
 import { Search, X } from 'lucide-react'
+import { IconButton } from '@/shared/ui/icon-button'
 import { Input } from '@/shared/ui/input'
 import { cn } from '@/shared/lib/utils'
 
@@ -9,12 +10,12 @@ export type SearchFieldProps = {
   className?: string
 }
 
-export function SearchField({
+export const SearchField = ({
   value,
   onValueChange,
   placeholder = 'Поиск упражнения',
   className,
-}: SearchFieldProps) {
+}: SearchFieldProps) => {
   return (
     <div className={cn('relative', className)}>
       <Search
@@ -29,15 +30,16 @@ export function SearchField({
         className="pr-9 pl-10 [&::-webkit-search-cancel-button]:hidden"
       />
       {value ? (
-        <button
-          type="button"
-          aria-label="Очистить поиск"
+        <IconButton
+          label="Очистить поиск"
+          variant="ghost"
+          size="icon-xs"
           onClick={() => onValueChange('')}
-          className="absolute top-1/2 right-2.5 grid size-5 -translate-y-1/2 place-items-center rounded-full bg-white/8 text-muted-foreground transition-colors hover:bg-white/14 hover:text-foreground"
+          className="absolute top-1/2 right-2.5 size-5 -translate-y-1/2 rounded-full bg-white/8 text-muted-foreground hover:bg-white/14 hover:text-foreground"
         >
           <X size={14} />
-        </button>
+        </IconButton>
       ) : null}
     </div>
   )
-}
+};

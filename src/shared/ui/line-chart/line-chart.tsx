@@ -11,7 +11,7 @@ export type LineChartProps = {
 
 const WIDTH = 320
 
-function smoothPath(points: Array<[number, number]>): string {
+const smoothPath = (points: Array<[number, number]>): string => {
   if (points.length === 0) return ''
   let path = `M ${points[0][0]} ${points[0][1]}`
   for (let index = 0; index < points.length - 1; index += 1) {
@@ -21,14 +21,14 @@ function smoothPath(points: Array<[number, number]>): string {
     path += ` C ${midX} ${y1}, ${midX} ${y2}, ${x2} ${y2}`
   }
   return path
-}
+};
 
-export function LineChart({
+export const LineChart = ({
   data,
   height = 140,
   format,
   className,
-}: LineChartProps) {
+}: LineChartProps) => {
   const rawId = useId()
   const gradientId = `line-${rawId.replace(/[^a-zA-Z0-9]/g, '')}`
 
@@ -114,4 +114,4 @@ export function LineChart({
       </div>
     </div>
   )
-}
+};

@@ -8,12 +8,12 @@ export type SectionHeadProps = {
   className?: string
 }
 
-export function SectionHead({
+export const SectionHead = ({
   title,
   subtitle,
   action,
   className,
-}: SectionHeadProps) {
+}: SectionHeadProps) => {
   return (
     <div className={cn('flex items-start justify-between gap-3', className)}>
       <div className="min-w-0">
@@ -25,4 +25,4 @@ export function SectionHead({
       {action ? <div className="shrink-0">{action}</div> : null}
     </div>
   )
-}
+};

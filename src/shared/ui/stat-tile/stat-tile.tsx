@@ -12,7 +12,7 @@ export type StatTileProps = {
   className?: string
 }
 
-export function StatTile({
+export const StatTile = ({
   label,
   value,
   unit,
@@ -20,7 +20,7 @@ export function StatTile({
   trend = 'flat',
   hint,
   className,
-}: StatTileProps) {
+}: StatTileProps) => {
   const TrendIcon =
     trend === 'up' ? TrendingUp : trend === 'down' ? TrendingDown : Minus
 
@@ -59,4 +59,4 @@ export function StatTile({
       ) : null}
     </div>
   )
-}
+};

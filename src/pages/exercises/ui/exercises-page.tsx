@@ -15,12 +15,13 @@ import {
   Chip,
   EmptyState,
   ExerciseRow,
+  IconButton,
   PageHeader,
   SearchField,
   SectionHead,
 } from '@/shared/ui'
 
-export function ExercisesPage() {
+export const ExercisesPage = () => {
   const [query, setQuery] = useState('')
   const [muscle, setMuscle] = useState<MuscleGroup | 'Все'>('Все')
   const [selected, setSelected] = useState<Exercise | null>(null)
@@ -50,13 +51,13 @@ export function ExercisesPage() {
         eyebrow="Библиотека"
         title="Упражнения"
         action={
-          <Button
+          <IconButton
+            label="Создать упражнение"
             variant="secondary"
             size="icon"
-            aria-label="Создать упражнение"
           >
             <Plus size={19} />
-          </Button>
+          </IconButton>
         }
       >
         <SearchField value={query} onValueChange={setQuery} />
@@ -227,4 +228,4 @@ export function ExercisesPage() {
       </BottomSheet>
     </div>
   )
-}
+};
