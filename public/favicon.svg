@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <rect width="64" height="64" rx="16" fill="#D7FF3E" />
+  <circle
+    cx="32"
+    cy="32"
+    r="14"
+    fill="none"
+    stroke="#0B0C0E"
+    stroke-width="8"
+    stroke-linecap="round"
+    stroke-dasharray="62 26"
+    transform="rotate(38 32 32)"
+  />
+  <path
+    d="M32 32h13"
+    fill="none"
+    stroke="#0B0C0E"
+    stroke-width="8"
+    stroke-linecap="round"
+  />
+</svg>
